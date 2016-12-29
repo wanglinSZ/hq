@@ -1,0 +1,1 @@
+nohup java -Xmx256m -jar mfc-vms-imdb-id-spider-0.1.0-SNAPSHOT.jar &

@@ -1,0 +1,40 @@
+
+description = 'SINA HQ'
+
+group 'com.allen.hq'
+version '0.1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+    repositories {
+        maven {
+            url "http://192.168.199.100:8080/repository/internal/"
+        }
+        maven{url "http://repo.spring.io/snapshot"}
+        maven{url "http://repo.spring.io/milestone"}
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+
+springBoot {
+    mainClass = "com.valor.mfc.vms.imdbId.spider.MainApplication"
+}
+dependencies {
+
+ compile group:'org.springframework.boot',name:'spring-boot-starter',version:"${springBootVersion}"
+ compile group: 'commons-io', name: 'commons-io', version: '2.5'
+ compile group: 'org.jsoup', name: 'jsoup', version: '1.10.1'
+}
+
+
