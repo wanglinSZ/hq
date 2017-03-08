@@ -10,7 +10,7 @@ allprojects  {
 
     repositories {
         mavenLocal()
-        maven { url "http://192.168.199.100:8080/repository/internal" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         maven { url "http://repo.maven.apache.org/maven2" }
         maven { url "http://repo.spring.io/snapshot"}

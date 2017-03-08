@@ -28,13 +28,17 @@ apply plugin: 'spring-boot'
 
 
 springBoot {
-    mainClass = "com.valor.mfc.vms.imdbId.spider.MainApplication"
+    mainClass = "com.hq.sina.MainApplication"
 }
 dependencies {
 
  compile group:'org.springframework.boot',name:'spring-boot-starter',version:"${springBootVersion}"
  compile group: 'commons-io', name: 'commons-io', version: '2.5'
  compile group: 'org.jsoup', name: 'jsoup', version: '1.10.1'
+ 
+ compile 'com.squareup.okhttp3:okhttp:3.6.0'
+ compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.3', classifier: 'jdk15'
+    
 }
 
 

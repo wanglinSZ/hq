@@ -21,7 +21,7 @@ public class SinaHQScheduler {
 
 	private AtomicBoolean executed = new AtomicBoolean(true);
 
-	@Scheduled(fixedDelay = 60 * 1000)
+	@Scheduled(fixedDelay = 10 * 1000)
 	private void scanPer10Second() {
 		if (executed.getAndSet(false))
 			try {

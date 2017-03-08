@@ -1,5 +1,7 @@
 package com.hq.sina.service;
 
+import java.text.DecimalFormat;
+
 import org.jsoup.Connection.Method;
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
@@ -14,7 +16,8 @@ import org.springframework.stereotype.Service;
 public class SinaHQService {
 	private static final Logger LOG = LoggerFactory.getLogger(SinaHQService.class);
 	private static final String URL = "http://hq.sinajs.cn/list=sh204001,sh204002,sh204003,sh204004,sh204007,sz131810,sz131811,sz131800,sz131809,sz131801";
-	private static final float MIN_VALUE = 6;
+	private static final float MIN_VALUE = 5;
+	private DecimalFormat df = new DecimalFormat("0.00");
 
 	public String spiderHQ() throws Exception {
 		String message = "";
@@ -22,7 +25,8 @@ public class SinaHQService {
 		for (String line : lines) {
 			String[] items = line.split(",");
 			if (Float.valueOf(items[3]).floatValue() >= MIN_VALUE) {
-				message = message + items[0].substring(21) + ",当前价格:" + items[3] + "\n";
+				message = message + items[0].substring(21) + ",当前价格:" + items[3] + ",收益："
+						+ df.format(Float.valueOf(items[3]).floatValue() * 10000 / 36500) + "\n";
 			}
 		}
 		return message.trim();
